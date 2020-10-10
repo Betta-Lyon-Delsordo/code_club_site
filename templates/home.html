@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron">
+	<h1 class="display-4">{ Code Club }</h1>
+	<p class="lead">A site for learning how to code.</p>
+	<p class="lead">
+		<a class="btn btn-primary btn-lg" href="{% url 'article_list' %}"
+		role="button">View All Posts</a>
+		</p>
+	</div>
+
+
+{% endblock content %}
