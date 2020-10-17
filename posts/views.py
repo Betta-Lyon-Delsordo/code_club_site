@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Post
 
@@ -23,3 +23,8 @@ class PostDetailView(DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
+    
+class PostCreateView(CreateView):
+    model = Post
+    template_name = 'post_new.html'
+    fields = ('title', 'body', 'author',)
