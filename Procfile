@@ -1,0 +1,1 @@
+web: gunicorn pages_project.wsi --log-file -
