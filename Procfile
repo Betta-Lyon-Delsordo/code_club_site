@@ -1,1 +1,1 @@
-web: gunicorn pages_project.wsi --log-file -
+web: gunicorn code_club.wsi --log-file -
