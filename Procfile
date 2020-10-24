@@ -1,1 +1,1 @@
-web: gunicorn code_club.wsi --log-file -
+web: gunicorn code_club.wsgi --log-file -
