@@ -25,22 +25,21 @@ class PostTests(TestCase):
     self.assertEqual(str(post), post.title)
     
   def test_get_absolute_url(self):
-    self.assertEqual(self.post.get_absolute_url(), '/posts/1/')
+    self.assertEqual(self.post.get_absolute_url(), '/posts/1')
     
   def test_post_content(self):
     self.assertEqual(f'{self.post.title}', 'A good title')
     self.assertEqual(f'{self.post.author}', 'testuser')
     self.assertEqual(f'{self.post.body}', 'Nice body content')
 
-  #def test_post_list_view(self):
-    #response = self.client.get(reverse('home'))
-    #self.assertEqual(response.status_code, 200)
-    #self.assertContains(response, 'Nice body content')
-    #self.assertTemplateUsed(response, 'home.html')
+  def test_post_list_view(self):
+    response = self.client.get(reverse('home'))
+    self.assertEqual(response.status_code, 200)
+    self.assertTemplateUsed(response, 'home.html')
 
   def test_post_detail_view(self):
-    response = self.client.get('/posts/1/')
-    no_response = self.client.get('/posts/100000/')
+    response = self.client.get('/posts/1')
+    no_response = self.client.get('/posts/100000')
     self.assertEqual(response.status_code, 200)
     self.assertEqual(no_response.status_code, 404)
     self.assertContains(response, 'A good title')
