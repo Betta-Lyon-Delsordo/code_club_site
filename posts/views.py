@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
@@ -6,19 +6,25 @@ from django.urls import reverse_lazy
 from .models import Post
 
 # Create your views here.
-class PostListView(LoginRequiredMixin, ListView):
+def redirect_view(request):
+    response = redirect('users/login/')
+    return response
+
+class PostListView(ListView):
     model = Post
     template_name = 'post_list.html'
     
     
-class PostDetailView(LoginRequiredMixin, DetailView):
+class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
+ 
     
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ('title', 'body',)
     template_name = 'post_edit.html'
+    login_url = 'login'
     
     def test_func(self):
         obj = self.get_object()
@@ -28,6 +34,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
+    login_url = 'login'
     
     def test_func(self):
         obj = self.get_object()
