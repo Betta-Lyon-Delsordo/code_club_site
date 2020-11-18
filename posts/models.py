@@ -10,8 +10,10 @@ COVER_CHOICES = [
     ('ep4.jpg', 'ep4'),
     ('ep5.jpg', 'ep5'),
     ('ep8.jpg', 'ep8'),
-    ('intro.jpg', 'intro'),
+    ('technovation.jpg', 'technovation'),
     ('intro2.jpg', 'intro2'),
+    ('alice.png', 'alice'),
+    ('app-inventor.png', 'app inventor'),
 ]
 
 
