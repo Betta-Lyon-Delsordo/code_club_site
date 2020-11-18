@@ -1,5 +1,8 @@
 <!-- templates/base.html -->
 <!doctype html>
+
+{% load static %}
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -12,10 +15,13 @@
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+	
+	<link href="{% static 'base.css' %}" rel="stylesheet">
+	
     <title>{% block title %}{Code Club}{% endblock title %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-md navbar-light mb-4" style="background-color: #F7E623;">
       <a class="navbar-brand" href="{% url 'home' %}">{Code Club}</a>
 	  <ul class="navbar-nav mr-auto">
 	  <li class="nav-item" style="visibility: hidden;">-----</li>

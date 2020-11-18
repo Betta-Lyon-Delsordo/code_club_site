@@ -2,6 +2,7 @@
 
 {% block content %}
 
+	<div class="card post-entry-padding">
 	<div class="post-entry">
 	<h2>{{ object.title }}</h2>
 	<p>by {{ object.author }} | {{ object.date }}</p>
@@ -15,5 +16,6 @@
 	<p><a href="{% url 'post_edit' post.pk %}">Edit</a> | 
 	<a href="{% url 'post_delete' post.pk %}">Delete</a></p>
 	<p>Back to <a href="{% url 'post_list' %}">All Posts</a>.</p>
+	</div>
 	
 {% endblock content %}

@@ -1,0 +1,16 @@
+body {
+	color: #363537;
+	background-color: #BFB09D;
+}
+
+a {
+	color: #508AA8;
+	hover: #436070;
+}
+
+.post-entry-padding {
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-bottom: 30px;
+  padding-left: 80px;
+}
