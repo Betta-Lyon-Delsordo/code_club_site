@@ -5,6 +5,11 @@
 	<div class="post-entry">
 	<h2>{{ object.title }}</h2>
 	<p>by {{ object.author }} | {{ object.date }}</p>
+	<br>
+	<img style="width:100%" src="{{ post.cover.url}}" alt="{{ post.title }}">
+	<br>
+	<br>
+	<br>
 	<p>{{ object.body }}</p>
 	</div>
 	<p><a href="{% url 'post_edit' post.pk %}">Edit</a> | 

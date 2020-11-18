@@ -22,7 +22,7 @@ class PostDetailView(DetailView):
     
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ('title', 'body',)
+    fields = ('title', 'body', 'cover',)
     template_name = 'post_edit.html'
     login_url = 'login'
     
@@ -43,9 +43,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = ('title', 'body',)
+    fields = ('title', 'body', 'author', 'cover',)
     login_url = 'login' 
     
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_vailid(form)
+   
